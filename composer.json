@@ -1,0 +1,14 @@
+{
+    "config": {
+        "process-timeout": 0
+    },
+    "scripts": {
+        "test": [
+            "Composer\\Config::disableProcessTimeout",
+            "phpunit"
+        ]
+    },
+    "require": {
+        "google/apiclient": "^2.15"
+    }
+}
