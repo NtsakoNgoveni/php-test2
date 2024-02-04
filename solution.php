@@ -1,13 +1,24 @@
 <?php
 
-function get_product($products, $productId) {
-    $productDetails = [];
-    foreach ($products as $product) {
-        if($product['id'] == $productId) {
-            $productDetails = $product;
-        }
+class Product {
+    private $products;
+
+    public function __construct($products) {
+        $this->products = $products;
     }
-    return $productDetails;
+
+    public function getProducts($newProducts) {
+        $this->products = $newProducts;
+    }
+    public function get_product($productId){
+        $productDetails = [];
+        foreach ($this->products as $product) {
+            if($product['id'] == $productId) {
+                $productDetails = $product;
+            }
+        }
+        return $productDetails;
+    }
 }
 
 $products = [
@@ -16,8 +27,6 @@ $products = [
     ['id' => 103, 'name' => 'Product 3', 'price' => 120.00],
 ];
 
-$productId = 102;
-$product = get_product($products, $productId);
-echo 'Product Name: ' . $product['name'] . "\n";
-echo 'Product Price: ' . $product['price'] . "\n";
+$product = new Product($products);
+print_r($product->get_product(101));
 ?>
