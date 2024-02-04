@@ -7,7 +7,7 @@ class Product {
         $this->products = $products;
     }
 
-    public function getProducts($newProducts) {
+    public function setProducts($newProducts) {
         $this->products = $newProducts;
     }
     public function get_product($productId){
